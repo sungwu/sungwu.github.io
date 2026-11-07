@@ -1,0 +1,29 @@
+[allPosts]
+other = "전체 글 →"
+
+[minutes]
+other = "{{ .Count }}분"
+
+[updated]
+other = "수정"
+
+[related]
+other = "이어지는 글"
+
+[older]
+other = "← 이전 글"
+
+[newer]
+other = "다음 글 →"
+
+[onThisPage]
+other = "목차"
+
+[translatedNotice]
+other = "이 글은 한국어 원문을 AI로 번역하고 저자가 검수했습니다."
+
+[originalUpdated]
+other = "원문 수정일"
+
+[readOriginal]
+other = "원문 읽기 (KO) →"

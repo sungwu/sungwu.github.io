@@ -1,0 +1,28 @@
+# On deploy, GitHub Actions injects the baseURL.
+baseURL = "https://sungwu.github.io/"
+title = "sungwu"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true   # serve languages under /en/ and /ko/
+hasCJKLanguage = true                   # reading time for CJK text
+
+# taxonomies are disabled
+disableKinds = ["taxonomy", "term"]
+
+enableRobotsTXT = true
+
+[caches.images]
+  dir = ":cacheDir/images"
+
+[languages.en]
+  weight = 1
+[languages.ko]
+  weight = 2
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+
+[markup.highlight]
+  noClasses = true
+  style = "github-dark"

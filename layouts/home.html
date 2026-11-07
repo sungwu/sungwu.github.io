@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="list">
+  <div class="list-head">
+    <h2>Writing</h2>
+    {{- with site.GetPage "/writing" }}
+    <a href="{{ .RelPermalink }}">{{ T "allPosts" }}</a>
+    {{- end }}
+  </div>
+  {{- $posts := where site.RegularPages "Section" "writing" }}
+  {{- range first 10 $posts.ByDate.Reverse }}
+  {{ partial "post-row.html" . }}
+  {{- end }}
+</section>
+{{ end }}

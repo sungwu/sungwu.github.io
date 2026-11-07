@@ -1,0 +1,10 @@
+<a class="row" href="{{ .RelPermalink }}">
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+  <span class="row-body">
+    <span class="row-title">{{ .Title }}</span>
+    {{- with trim (plainify .Summary) " \n" }}
+    <span class="row-sum">{{ . | truncate 140 }}</span>
+    {{- end }}
+    <span class="row-meta">{{ T "minutes" .ReadingTime }}</span>
+  </span>
+</a>

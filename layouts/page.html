@@ -1,0 +1,58 @@
+{{ define "main" }}
+{{- if eq .Lang "en" }}{{ partial "translation-notice.html" . }}{{ end }}
+{{- $toc := .TableOfContents }}
+{{- $hasToc := in (string $toc) "<li>" }}
+<div class="post-layout">
+  <article class="post">
+    {{- with site.GetPage "/writing" }}
+    <p class="crumb"><a href="{{ .RelPermalink }}">Writing</a></p>
+    {{- end }}
+    <h1>{{ .Title }}</h1>
+    <p class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+      · {{ T "minutes" .ReadingTime }}
+      {{- if ne (.Lastmod.Format "20060102") (.Date.Format "20060102") }}
+      · {{ T "updated" }} {{ .Lastmod.Format "2006.01.02" }}
+      {{- end }}
+    </p>
+
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    {{- with .Params.related }}
+    <div class="related">
+      <span class="label">{{ T "related" }}</span>
+      {{- range . }}
+      {{- with site.GetPage (printf "/writing/%s" .) }}
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- end }}
+      {{- end }}
+    </div>
+    {{- end }}
+
+    {{- $all := where site.RegularPages "Section" "writing" }}
+    {{- $older := where $all "Date" "lt" .Date }}
+    {{- $newer := where $all "Date" "gt" .Date }}
+    <nav class="prevnext" aria-label="posts">
+      <span>
+        {{- range first 1 $older.ByDate.Reverse }}
+        <a href="{{ .RelPermalink }}"><small>{{ T "older" }}</small>{{ .Title }}</a>
+        {{- end }}
+      </span>
+      <span class="right">
+        {{- range first 1 $newer.ByDate }}
+        <a href="{{ .RelPermalink }}"><small>{{ T "newer" }}</small>{{ .Title }}</a>
+        {{- end }}
+      </span>
+    </nav>
+  </article>
+
+  {{- if $hasToc }}
+  <aside class="toc" aria-label="{{ T "onThisPage" }}">
+    <span class="label">{{ T "onThisPage" }}</span>
+    {{ $toc }}
+  </aside>
+  {{- end }}
+</div>
+{{ end }}

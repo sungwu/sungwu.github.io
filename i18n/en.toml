@@ -1,0 +1,30 @@
+[allPosts]
+other = "All writing →"
+
+[minutes]
+one = "{{ .Count }} min"
+other = "{{ .Count }} min"
+
+[updated]
+other = "Updated"
+
+[related]
+other = "Related"
+
+[older]
+other = "← Older"
+
+[newer]
+other = "Newer →"
+
+[onThisPage]
+other = "On this page"
+
+[translatedNotice]
+other = "Translated from Korean by AI and reviewed by the author."
+
+[originalUpdated]
+other = "Original updated"
+
+[readOriginal]
+other = "Read original (KO) →"

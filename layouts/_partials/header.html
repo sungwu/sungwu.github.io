@@ -1,0 +1,15 @@
+<header class="site-header">
+  <a class="brand" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
+  <nav aria-label="menu">
+    {{- with site.GetPage "/writing" }}
+    <a href="{{ .RelPermalink }}"{{ if eq $.Section "writing" }} aria-current="page"{{ end }}>Writing</a>
+    {{- end }}
+    {{- if gt (len .AllTranslations) 1 }}
+    <span class="lang" role="group" aria-label="language">
+      {{- range .AllTranslations }}
+      <a href="{{ .RelPermalink }}" hreflang="{{ .Lang }}"{{ if eq .Lang $.Lang }} aria-current="true"{{ end }}>{{ upper .Lang }}</a>
+      {{- end }}
+    </span>
+    {{- end }}
+  </nav>
+</header>
