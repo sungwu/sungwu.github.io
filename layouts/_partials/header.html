@@ -7,7 +7,7 @@
     {{- if gt (len .AllTranslations) 1 }}
     <span class="lang" role="group" aria-label="language">
       {{- range .AllTranslations }}
-      <a href="{{ .RelPermalink }}" hreflang="{{ .Lang }}"{{ if eq .Lang $.Lang }} aria-current="true"{{ end }}>{{ upper .Lang }}</a>
+      <a href="{{ .RelPermalink }}" hreflang="{{ .Lang }}" onclick="try{localStorage.setItem('lang','{{ .Lang }}')}catch(e){}"{{ if eq .Lang $.Lang }} aria-current="true"{{ end }}>{{ upper .Lang }}</a>
       {{- end }}
     </span>
     {{- end }}

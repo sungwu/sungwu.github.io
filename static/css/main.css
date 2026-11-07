@@ -45,8 +45,9 @@ a:hover { color: var(--accent); }
 .row:hover .row-title { color: var(--accent); }
 
 /* post */
-.notice { margin-top: 24px; border: 1px dashed var(--muted); border-radius: 10px; padding: 14px 18px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px; color: #3F3F46; }
-.notice a { font-family: var(--mono); font-size: 13px; }
+.notice { margin: 0 0 40px; font-size: 14px; line-height: 1.6; color: var(--muted); }
+.notice a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.meta:has(+ .notice) { margin-bottom: 10px; }
 
 .post-layout { display: flex; flex-wrap: wrap; gap: 64px; padding-top: 56px; }
 .post { flex: 999 1 560px; min-width: 0; max-width: 680px; }

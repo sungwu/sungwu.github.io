@@ -1,0 +1,22 @@
+{{- $ko := "" }}{{- range .Page.AllTranslations }}{{ if eq .Lang "ko" }}{{ $ko = .Permalink }}{{ end }}{{ end -}}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ .Permalink }}</title>
+  <link rel="canonical" href="{{ .Permalink }}">
+  <noscript><meta http-equiv="refresh" content="0; url={{ .Permalink }}"></noscript>
+  <script>
+    (function () {
+      var en = {{ .Permalink }}, ko = {{ $ko }}, lang = "";
+      try { lang = localStorage.getItem("lang") || ""; } catch (e) {}
+      if (lang !== "ko" && lang !== "en") {
+        var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+        lang = /^ko\b/i.test(langs[0] || "") ? "ko" : "en";
+      }
+      location.replace(lang === "ko" && ko ? ko : en);
+    })();
+  </script>
+</head>
+<body></body>
+</html>

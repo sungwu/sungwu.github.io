@@ -1,5 +1,4 @@
 {{ define "main" }}
-{{- if eq .Lang "en" }}{{ partial "translation-notice.html" . }}{{ end }}
 {{- $toc := .TableOfContents }}
 {{- $hasToc := in (string $toc) "<li>" }}
 <div class="post-layout">
@@ -15,6 +14,7 @@
       · {{ T "updated" }} {{ .Lastmod.Format "2006.01.02" }}
       {{- end }}
     </p>
+    {{- if eq .Lang "en" }}{{ partial "translation-notice.html" . }}{{ end }}
 
     <div class="content">
       {{ .Content }}

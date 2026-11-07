@@ -1,8 +1,7 @@
 {{- $orig := false }}
 {{- range .Translations }}{{ if eq .Lang "ko" }}{{ $orig = . }}{{ end }}{{ end }}
-<div class="notice" role="note">
-  <span>{{ T "translatedNotice" }}{{ with .Params.source_lastmod }} {{ T "originalUpdated" }} {{ . }}.{{ end }}</span>
-  {{- with $orig }}
-  <a href="{{ .RelPermalink }}" hreflang="ko">{{ T "readOriginal" }}</a>
-  {{- end }}
-</div>
+<p class="notice" role="note">
+  {{ T "translatedNotice" }}
+  {{- with .Params.source_lastmod }} {{ T "originalUpdated" }} {{ . }}.{{ end }}
+  {{- with $orig }} <a href="{{ .RelPermalink }}" hreflang="ko">{{ T "readOriginal" }}</a>{{ end }}
+</p>
