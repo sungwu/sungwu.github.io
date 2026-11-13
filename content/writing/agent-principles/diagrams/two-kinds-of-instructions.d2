@@ -1,0 +1,17 @@
+...@_style
+grid-columns: 2
+grid-gap: 40
+read: 모델이 읽고 판단하는 지시 {
+  class: group
+  direction: down
+  what: "프롬프트 · CLAUDE.md · skill" {class: box}
+  res: "대개 지켜지지만 보장은 없다" {class: muted}
+  what -> res
+}
+enf: harness가 집행하는 지시 {
+  class: group
+  direction: down
+  what: "권한 · deny 규칙 · hook\nsandbox · effort 설정" {class: box}
+  res: "모델 판단과 무관하게 매번 적용" {class: key}
+  what -> res
+}

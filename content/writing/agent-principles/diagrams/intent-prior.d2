@@ -1,0 +1,13 @@
+...@_style
+direction: down
+z: "실제 의도 Z" {class: muted}
+c: "요청 c" {class: box}
+q: "c가 Z를 충분히 좁히나?" {class: decision}
+good: 의도에 맞는 결과 {class: key}
+prior: "빈칸을 prior로 채움\n평균적인 사용자의 의도" {class: box}
+stay: "그 해석이 컨텍스트에 남아\n이후 모든 호출의 조건이 됨" {class: muted}
+z -> c: 일부만 전달 {style.stroke-dash: 3}
+c -> q
+q -> good: 예
+q -> prior: 아니오
+prior -> stay

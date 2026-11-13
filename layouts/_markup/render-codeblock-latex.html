@@ -1,0 +1,2 @@
+{{- .Page.Store.Set "hasMath" true -}}
+<div class="math-block">\[{{ .Inner | htmlEscape | safeHTML }}\]</div>

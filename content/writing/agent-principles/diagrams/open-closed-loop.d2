@@ -1,0 +1,24 @@
+...@_style
+grid-columns: 2
+grid-gap: 48
+open: open-loop {
+  class: group
+  direction: down
+  a: 단계 1 {class: box}
+  b: 단계 2 {class: box}
+  c: 단계 3 {class: box}
+  r: "결과 · 오차 누적" {class: muted}
+  a -> b -> c -> r
+}
+closed: closed-loop {
+  class: group
+  direction: down
+  w: 작업 {class: box}
+  v: "검증 실행\n테스트 · 빌드 · diff" {class: key}
+  d: 완료 {class: muted}
+  f: "실패 원인을 덧붙임" {class: box}
+  w -> v
+  v -> d: 통과
+  v -> f: 실패
+  f -> w {style.stroke-dash: 3}
+}

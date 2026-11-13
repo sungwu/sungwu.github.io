@@ -1,0 +1,15 @@
+...@_style
+direction: down
+g: 남은 빈칸 {class: muted}
+t: 도구로 채울 수 있나? {class: decision}
+r: "읽기 · 검색으로 채움" {class: box}
+e: 되돌리기 쉬운가? {class: decision}
+go: "가정을 명시하고 진행\n결과 요약에 기록" {class: key}
+w: 할 수 있는 일을 먼저 끝냄 {class: box}
+ask: "계획 · diff · 초안과\n함께 질문" {class: key}
+g -> t
+t -> r: 예
+t -> e: 아니오
+e -> go: 쉬움
+e -> w: 어려움
+w -> ask

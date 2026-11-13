@@ -1,0 +1,15 @@
+...@_style
+# Grid fills column by column: (sensor, world), (ctx, blank), (m, act)
+grid-columns: 3
+grid-gap: 70
+sensor: "sensor\n읽기 · 검색 · 로그" {class: box}
+world: "바깥 세계\n저장소 · 서버 · 패키지" {class: muted}
+ctx: "컨텍스트\nbelief 갱신" {class: box}
+blank: "" {style.opacity: 0}
+m: 모델 {class: key}
+act: "actuator\n쓰기 · 실행 · 테스트" {class: box}
+world -> sensor: 관측
+sensor -> ctx
+ctx -> m
+m -> act: action
+act -> world: 상태 변경

@@ -1,0 +1,9 @@
+...@_style
+direction: down
+s: 긴 세션 {class: muted}
+cp: compaction {class: decision}
+lost: "대화 초반의 세부 지시\n사라질 수 있음" {class: box; style.stroke-dash: 4}
+kept: "CLAUDE.md · AGENTS.md\n다시 들어옴" {class: key}
+s -> cp
+cp -> lost: 요약 · 암호화
+cp -> kept: 매번 다시 로드

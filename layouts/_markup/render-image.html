@@ -1,0 +1,13 @@
+{{- /* Resolve images from the page bundle so they are published; show the title as a caption. */ -}}
+{{- $src := .Destination }}
+{{- with .Page.Resources.Get .Destination }}{{ $src = .RelPermalink }}{{ end }}
+{{- if .IsBlock }}
+<figure>
+  <img src="{{ $src }}" alt="{{ .PlainText }}" loading="lazy">
+  {{- with .Title }}
+  <figcaption>{{ . | markdownify }}</figcaption>
+  {{- end }}
+</figure>
+{{- else }}
+<img src="{{ $src }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy">
+{{- end }}

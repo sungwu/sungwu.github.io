@@ -1,0 +1,11 @@
+...@_style
+grid-columns: 2
+grid-gap: 80
+input: "지금까지의 토큰" {class: box}
+model: "모델" {class: key}
+tok: "다음 토큰 하나" {class: box}
+dist: "다음 토큰 분포" {class: box}
+input -> model: 입력
+model -> dist: 계산
+dist -> tok: sampling
+tok -> input: 끝에 붙임

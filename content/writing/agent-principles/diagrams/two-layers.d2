@@ -1,0 +1,18 @@
+...@_style
+direction: down
+user: 사용자 {class: muted}
+harness: harness {
+  class: group
+  grid-columns: 4
+  grid-gap: 12
+  loop: 루프 · 종료 {class: box}
+  ctx: 컨텍스트 관리 {class: box}
+  tools: 도구 실행 {class: box}
+  rules: 권한 · hook {class: box}
+}
+llm: LLM {class: key}
+world: "바깥 세계 · 저장소 · 로그 · 웹" {class: muted}
+user -> harness: 요청
+harness -> llm: 컨텍스트 전체
+llm -> harness: 다음 출력 {style.stroke-dash: 3}
+harness <-> world: 실행 · 관측

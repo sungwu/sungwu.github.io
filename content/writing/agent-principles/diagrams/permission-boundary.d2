@@ -1,0 +1,14 @@
+...@_style
+direction: down
+deny: "deny 규칙 · .env · 인증 정보는 항상 차단" {class: box; style.stroke: "#B91C1C"; style.stroke-dash: 4}
+a: 에이전트의 동작 {class: muted}
+q1: 작업 공간 안? {class: decision}
+q2: 되돌릴 수 있나? {class: decision}
+wide: "넓게 허용\n읽기 · 로컬 쓰기" {class: key}
+narrow: "좁게 · 승인 필요\n배포 · 삭제 · 외부 발송" {class: box}
+deny -> a {style.stroke-dash: 3}
+a -> q1
+q1 -> q2: 예
+q1 -> narrow: 아니오
+q2 -> wide: 예
+q2 -> narrow: 아니오

@@ -1,0 +1,13 @@
+...@_style
+direction: down
+req: 요청 {class: muted}
+plan: "계획 · 해석 제시" {class: box}
+rv: 사람이 검토 {class: decision}
+fix: "요청 보완 · 비용 작음" {class: key}
+impl: 구현 {class: box}
+late: "뒤늦게 발견하면 비용 큼" {class: muted}
+req -> plan -> rv
+rv -> fix: 해석이 틀림
+fix -> plan {style.stroke-dash: 3}
+rv -> impl: 맞음
+impl -> late {style.stroke-dash: 3}

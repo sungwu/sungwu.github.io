@@ -1,0 +1,2 @@
+{{- /* One column of a cols block; inner content is rendered as Markdown. */ -}}
+<div class="col">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>

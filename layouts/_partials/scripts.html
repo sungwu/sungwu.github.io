@@ -1,0 +1,12 @@
+{{- /* Load the math renderer only on pages that use it. */ -}}
+{{- if .Store.Get "hasMath" }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.querySelector('.content'), {delimiters: [{left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}], throwOnError: false})"></script>
+{{- end }}
+{{- /* Local editing helper: only under `hugo server`, never in the published build. */ -}}
+{{- if hugo.IsServer }}
+<script defer src="http://localhost:1314/edit.js"
+  onerror="var d=document.createElement('div');d.textContent='Edit helper unreachable: run python scripts/dev.py';d.style.cssText='position:fixed;right:16px;bottom:16px;padding:8px 14px;border-radius:999px;background:#B91C1C;color:#fff;font:500 13px system-ui;z-index:50';document.body.append(d)"></script>
+{{- end }}
